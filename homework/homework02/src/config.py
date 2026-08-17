@@ -1,0 +1,14 @@
+
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+
+def load_env():
+    env_path = Path(__file__).resolve().parents[1] / ".env"
+    load_dotenv(env_path)
+    return env_path
+
+
+def get_key(name: str, default=None):
+    return os.getenv(name, default)
